@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <title>Attack Monster</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <nav class="navbar navbar-dark bg-dark shadow-lg mb-5 rounde m-4 bg-nav">
+            <h2 class="text-bold text-white">MONSTER ATTACK</h2>
+        </nav>
+
+        <div class="container">
+            <!-- Escolha de genero -->
+            <template v-if="quadroGenero">
+                <div class="d-flex justify-content-around m-4">
+                    <span class="badge badge-warning">
+                        <h1 class="text-bold text-upper p-2"><i class="fas fa-user-shield"></i> Escolha seu genero!</h1>
+                    </span>
+                </div>
+
+                <div class="row justify-content-md-center">
+                    <div class="col">
+                        <div class="card">
+                            <div class="d-flex justify-content-center">
+                                <div class="box-avatar">
+                                    <img src="../assets/img/avatars/male.gif" class="card-img-top">
+                                </div>
+                            </div>
+                            <div class="card-body d-flex justify-content-center">
+                                <button @click="changeGenero('male')" class="btn btn-primary text-bold">MALE</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card">
+                            <div class="d-flex justify-content-center">
+                                <div class="box-avatar">
+                                    <img src="../assets/img/avatars/female.gif" class="card-img-top">
+                                </div>
+                            </div>
+                            <div class="card-body d-flex justify-content-center">
+                                <button @click="changeGenero('female')" class="btn btn-danger text-bold">FEMALE</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <!-- Escolha de genero -->
+
+            <!-- Quadro de batalha -->
+            <template v-if="quadroBatalha">
+                <div class="row justify-content-md-center">
+
+                    <!-- Personagem -->
+                    <div class="col">
+                        <div class="card">
+                            <div class="d-flex justify-content-center">
+                                <div class="box-avatar">
+                                    <img :src="personagem" class="card-img-top">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="progress mt-3">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                :style="vidaPersonagem" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        <div class="d-flex justify-content-around mt-3">
+                            <button type="button" class="btn btn-primary" @click="atacar"><i
+                                    class="fas fa-hand-rock"></i>
+                                Atacar</button>
+                            <button type="button" class="btn btn-warning" @click="atacarEspecial"><i
+                                    class="fas fa-shield-alt"></i>
+                                Ataque Especial</button>
+                            <button type="button" class="btn btn-success" @click="curar"><i
+                                    class="fas fa-star-of-life"></i>
+                                Curar</button>
+                            <button type="button" class="btn btn-danger" @click="desistir"><i
+                                    class="fas fa-window-close"></i>
+                                Desistir</button>
+                        </div>
+                    </div>
+                    <!-- Personagem -->
+
+                    <!-- Monstro -->
+                    <div class="col">
+                        <div class="card">
+                            <div class="d-flex justify-content-center">
+                                <div class="box-avatar">
+                                    <img :src="monster" class="card-img-top">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="progress mt-3">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                                role="progressbar" :style="vidaMonstro" aria-valuenow="0" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <!-- Monstro -->
+                </div>
+                <!-- Mensagens de ataque -->
+                <template v-if="vidaPerson != 100">
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <div class="alert alert-danger" role="alert">
+                                {{msgPerson}}
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="alert alert-danger" role="alert">
+                                {{msgMonstro}}
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <!-- Mensagens de ataque -->
+                <template>
+                    <div class="alert alert-success" role="alert" v-if="vidaMonster <= 0 && vidaPerson > 0">
+                        VITORIA!
+                    </div>
+                    <div class="alert alert-warning" role="alert" v-if="vidaPerson <= 0 && vidaMonster > 0">
+                        DERROTA!
+                    </div>
+                </template>
+            </template>
+            <!-- Quadro de batalha -->
+        </div>
+    </div>
+</body>
+
+<script src="../assets/js/app.js"></script>
+<script src="../node_modules/@fortawesome/fontawesome-free/js/all.js"></script>
+
+</html>

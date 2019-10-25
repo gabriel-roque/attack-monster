@@ -1,0 +1,22 @@
+.logo {
+    width: 300px;
+}
+
+.text-bold{
+    font-weight: bolder;
+}
+
+.text-upper{
+   text-transform: uppercase;
+}
+
+.bg-nav{
+    background-image: url('../img/background.jpg');
+    height: 50px;
+    width: 100%px 
+}
+
+.box-avatar{
+    min-width: 200px;
+    margin-bottom: 2%;
+}
