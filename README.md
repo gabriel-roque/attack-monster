@@ -8,12 +8,12 @@ _Concept a simple game with Vuejs_
 </p>
 
 <b>Plays</b>
-* Male
+* Female
 <p align="center">
   <img src="https://i.imgur.com/10KbSsd.gif">
 </p>
 
-* Female
+* Male
 <p align="center">
   <img src="https://i.imgur.com/WE6m76H.gif">
 </p>  
