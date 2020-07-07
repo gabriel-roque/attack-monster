@@ -14,10 +14,10 @@
     "jquery": "^3.4.1",
     "popper": "^1.0.1",
     "vue": "^2.6.10",
-    "electron": "^6.0.12"
+    "electron": "^7.2.4"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.9.0",
-    "electron": "^6.0.12"
+    "electron": "^7.2.4"
   }
 }
